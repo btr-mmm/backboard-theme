@@ -61,7 +61,7 @@ if (!class_exists('BackboardTheme')) {
      */
     private function loadPostTypes()
     {
-      $postTypesDirectory = get_template_directory() . '/inc/post-types';
+      $postTypesDirectory = get_template_directory() . '/inc/post-types/';
 
       if (!file_exists($postTypesDirectory)) {
         return;
@@ -84,7 +84,7 @@ if (!class_exists('BackboardTheme')) {
         return;
       }
 
-      $acfFieldsDirectory = get_template_directory() . '/inc/post-types';
+      $acfFieldsDirectory = get_template_directory() . '/inc/acf-fields/';
 
       if (!file_exists($acfFieldsDirectory)) {
         return;
