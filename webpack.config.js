@@ -39,7 +39,7 @@ module.exports = [
     },
     plugins: [
       new MiniCssExtractPlugin({
-        filename: './dist/main.min.scss',
+        filename: './dist/main.min.css',
       }),
     ],
     optimization: {
