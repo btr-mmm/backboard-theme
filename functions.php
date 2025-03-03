@@ -19,6 +19,7 @@ if (!class_exists('BackboardTheme')) {
 
       $this->loadPostTypes();
       $this->loadACFFields();
+      $this->loadOptionsPages();
 
       $this->hooks();
     }
@@ -93,6 +94,29 @@ if (!class_exists('BackboardTheme')) {
       $acfFieldFiles = glob($acfFieldsDirectory . '*.php');
       if (!empty($acfFieldFiles)) {
         foreach ($acfFieldFiles as $file) {
+          require_once $file;
+        }
+      }
+    }
+
+    /**
+     * Load all ACF field groups from ./inc/acf-fields
+     */
+    private function loadOptionsPages()
+    {
+      if (!function_exists('acf_add_options_page')) {
+        return;
+      }
+
+      $optionsDirectory = get_template_directory() . '/inc/options/';
+
+      if (!file_exists($optionsDirectory)) {
+        return;
+      }
+
+      $optionsFiles = glob($optionsDirectory . '*.php');
+      if (!empty($optionsFiles)) {
+        foreach ($optionsFiles as $file) {
           require_once $file;
         }
       }
