@@ -29,7 +29,11 @@ module.exports = [
               loader: 'sass-loader',
               options: {
                 sassOptions: {
-                  includePaths: [nodeModulesPath],
+                  includePaths: [
+                    nodeModulesPath,
+                    path.resolve(__dirname, 'src/css'),
+                  ],
+                  loadPaths: [path.resolve(__dirname, 'src/css')],
                 },
               },
             },
