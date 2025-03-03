@@ -1,4 +1,4 @@
-<?php while (have_rows('hero')):
+<?php while (have_rows('page_hero')):
   the_row(); ?>
   <section class="hero">
     <div class="wrapper">
