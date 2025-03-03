@@ -1,0 +1,51 @@
+@use 'abstracts' as *;
+
+header {
+  // position: fixed;
+  // top: 0;
+  // left: 0;
+  width: 100%;
+  background-color: $clr-overlay;
+  padding: 1rem 5rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  a:not(.active),
+  a.active {
+    color: $clr-base;
+    text-decoration: none;
+  }
+
+  a.logo {
+    font-family: 'Pridi', serif;
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 2.5rem;
+
+    text-transform: uppercase;
+
+    li {
+      a {
+        &:hover {
+          text-decoration: underline;
+          text-decoration-skip-ink: auto;
+        }
+
+        &.active {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+
