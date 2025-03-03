@@ -1,0 +1,40 @@
+@use 'abstracts' as *;
+
+// Import Pridi & Public Sans fonts
+@import url('https://fonts.googleapis.com/css2?family=Pridi:wght@200;300;400;500;600;700&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 16px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $clr-accent-dark;
+}
+
+h1,
+h2 {
+  font-family: 'Pridi', serif;
+  font-weight: 700;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Public Sans', sans-serif;
+}
+
+h1 {
+  font-size: 9rem;
+}
+
+h2 {
+  font-size: 4.5rem;
+}
+
