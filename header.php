@@ -52,4 +52,4 @@
       </ul>
     </nav>
   </header>
-  <main>
+  <main <?php if (is_front_page()) echo "id='scroll-container'" ?>>
