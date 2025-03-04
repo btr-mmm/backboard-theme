@@ -1,16 +1,16 @@
 <?php
-function registerLeagueDetailsFields()
+function registerProgramDetailsFields()
 {
   if (! function_exists('acf_add_local_field_group')) {
     return;
   }
 
   acf_add_local_field_group(array(
-    'key' => 'group_67c75a1d293e9',
-    'title' => 'League Details',
+    'key' => 'group_67c7543d44f01',
+    'title' => 'Program Details',
     'fields' => array(
       array(
-        'key' => 'field_67c75a1d2b849',
+        'key' => 'field_67c758abe7d9c',
         'label' => 'Start Date',
         'name' => 'start_date',
         'aria-label' => '',
@@ -29,7 +29,7 @@ function registerLeagueDetailsFields()
         'allow_in_bindings' => 0,
       ),
       array(
-        'key' => 'field_67c75a1d2b84e',
+        'key' => 'field_67c758c9e7d9d',
         'label' => 'End Date',
         'name' => 'end_date',
         'aria-label' => '',
@@ -48,7 +48,7 @@ function registerLeagueDetailsFields()
         'allow_in_bindings' => 0,
       ),
       array(
-        'key' => 'field_67c75a1d2b853',
+        'key' => 'field_67c7543d465a7',
         'label' => 'Sold out?',
         'name' => 'sold_out',
         'aria-label' => '',
@@ -69,7 +69,7 @@ function registerLeagueDetailsFields()
         'ui' => 1,
       ),
       array(
-        'key' => 'field_67c75a1d2b857',
+        'key' => 'field_67c7543d465ab',
         'label' => 'Program Info',
         'name' => 'vitals',
         'aria-label' => '',
@@ -85,7 +85,7 @@ function registerLeagueDetailsFields()
         'layout' => 'block',
         'sub_fields' => array(
           array(
-            'key' => 'field_67c75a1d2db10',
+            'key' => 'field_67c7543d47233',
             'label' => 'Who',
             'name' => 'who',
             'aria-label' => '',
@@ -106,7 +106,7 @@ function registerLeagueDetailsFields()
             'append' => '',
           ),
           array(
-            'key' => 'field_67c75a1d2db15',
+            'key' => 'field_67c7543d47236',
             'label' => 'When',
             'name' => 'when',
             'aria-label' => '',
@@ -127,7 +127,7 @@ function registerLeagueDetailsFields()
             'append' => '',
           ),
           array(
-            'key' => 'field_67c75a1d2db19',
+            'key' => 'field_67c7543d47239',
             'label' => 'Where',
             'name' => 'where',
             'aria-label' => '',
@@ -148,7 +148,7 @@ function registerLeagueDetailsFields()
             'append' => '',
           ),
           array(
-            'key' => 'field_67c75a1d2db1d',
+            'key' => 'field_67c7543d4723b',
             'label' => 'Disclaimer',
             'name' => 'disclaimer',
             'aria-label' => '',
@@ -171,7 +171,7 @@ function registerLeagueDetailsFields()
         ),
       ),
       array(
-        'key' => 'field_67c75a1d2b85b',
+        'key' => 'field_67c7543d465ad',
         'label' => 'Details',
         'name' => 'details',
         'aria-label' => '',
@@ -187,7 +187,7 @@ function registerLeagueDetailsFields()
         'layout' => 'block',
         'sub_fields' => array(
           array(
-            'key' => 'field_67c75a1d3087c',
+            'key' => 'field_67c7543d496d8',
             'label' => 'Featured Image',
             'name' => 'image',
             'aria-label' => '',
@@ -208,7 +208,7 @@ function registerLeagueDetailsFields()
             'append' => '',
           ),
           array(
-            'key' => 'field_67c75a1d30880',
+            'key' => 'field_67c7543d496db',
             'label' => 'Content',
             'name' => 'content',
             'aria-label' => '',
@@ -231,7 +231,28 @@ function registerLeagueDetailsFields()
         ),
       ),
       array(
-        'key' => 'field_67c75a1d2b864',
+        'key' => 'field_67c75473e7d9b',
+        'label' => 'Sample Schedule',
+        'name' => 'schedule',
+        'aria-label' => '',
+        'type' => 'wysiwyg',
+        'instructions' => '',
+        'required' => 0,
+        'conditional_logic' => 0,
+        'wrapper' => array(
+          'width' => '',
+          'class' => '',
+          'id' => '',
+        ),
+        'default_value' => '',
+        'allow_in_bindings' => 0,
+        'tabs' => 'all',
+        'toolbar' => 'full',
+        'media_upload' => 1,
+        'delay' => 0,
+      ),
+      array(
+        'key' => 'field_67c7543d465b2',
         'label' => 'Coaches',
         'name' => 'coaches',
         'aria-label' => '',
@@ -253,7 +274,7 @@ function registerLeagueDetailsFields()
         'rows_per_page' => 20,
         'sub_fields' => array(
           array(
-            'key' => 'field_67c75a1d33548',
+            'key' => 'field_67c7543d4bd36',
             'label' => 'Name',
             'name' => 'name',
             'aria-label' => '',
@@ -272,10 +293,10 @@ function registerLeagueDetailsFields()
             'placeholder' => '',
             'prepend' => '',
             'append' => '',
-            'parent_repeater' => 'field_67c75a1d2b864',
+            'parent_repeater' => 'field_67c7543d465b2',
           ),
           array(
-            'key' => 'field_67c75a1d3354c',
+            'key' => 'field_67c759cf1bc0b',
             'label' => 'Name',
             'name' => 'name',
             'aria-label' => '',
@@ -294,10 +315,10 @@ function registerLeagueDetailsFields()
             'placeholder' => '',
             'prepend' => '',
             'append' => '',
-            'parent_repeater' => 'field_67c75a1d2b864',
+            'parent_repeater' => 'field_67c7543d465b2',
           ),
           array(
-            'key' => 'field_67c75a1d3354f',
+            'key' => 'field_67c7543d4bd3d',
             'label' => 'Job Title',
             'name' => 'job_title',
             'aria-label' => '',
@@ -316,10 +337,10 @@ function registerLeagueDetailsFields()
             'placeholder' => '',
             'prepend' => '',
             'append' => '',
-            'parent_repeater' => 'field_67c75a1d2b864',
+            'parent_repeater' => 'field_67c7543d465b2',
           ),
           array(
-            'key' => 'field_67c75a1d33551',
+            'key' => 'field_67c759d41bc0c',
             'label' => 'Title',
             'name' => 'title',
             'aria-label' => '',
@@ -338,10 +359,10 @@ function registerLeagueDetailsFields()
             'placeholder' => '',
             'prepend' => '',
             'append' => '',
-            'parent_repeater' => 'field_67c75a1d2b864',
+            'parent_repeater' => 'field_67c7543d465b2',
           ),
           array(
-            'key' => 'field_67c75a1d33554',
+            'key' => 'field_67c7543d4bd40',
             'label' => 'Bio',
             'name' => 'bio',
             'aria-label' => '',
@@ -360,10 +381,10 @@ function registerLeagueDetailsFields()
             'toolbar' => 'full',
             'media_upload' => 1,
             'delay' => 0,
-            'parent_repeater' => 'field_67c75a1d2b864',
+            'parent_repeater' => 'field_67c7543d465b2',
           ),
           array(
-            'key' => 'field_67c75a1d33557',
+            'key' => 'field_67c759da1bc0d',
             'label' => 'Bio',
             'name' => 'bio',
             'aria-label' => '',
@@ -382,12 +403,12 @@ function registerLeagueDetailsFields()
             'toolbar' => 'full',
             'media_upload' => 1,
             'delay' => 0,
-            'parent_repeater' => 'field_67c75a1d2b864',
+            'parent_repeater' => 'field_67c7543d465b2',
           ),
         ),
       ),
       array(
-        'key' => 'field_67c75a1d2b868',
+        'key' => 'field_67c7543d465b5',
         'label' => 'Registration Link',
         'name' => 'registration',
         'aria-label' => '',
@@ -410,7 +431,7 @@ function registerLeagueDetailsFields()
         array(
           'param' => 'post_type',
           'operator' => '==',
-          'value' => 'league',
+          'value' => 'program',
         ),
       ),
     ),
@@ -426,4 +447,4 @@ function registerLeagueDetailsFields()
   ));
 }
 
-add_action('acf/include_fields', 'registerLeagueDetailsFields');
+add_action('acf/include_fields', 'registerProgramDetailsFields');
