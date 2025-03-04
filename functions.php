@@ -34,6 +34,11 @@ if (!class_exists('BackboardTheme')) {
 
       // Add theme supports
       add_action('after_setup_theme', [$this, 'themeSupports']);
+
+      // Change title separator
+      add_filter('document_title_separator', function ($sep) {
+        return ('|');
+      });
     }
 
     /**
