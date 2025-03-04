@@ -1,0 +1,51 @@
+@use 'abstracts' as *;
+
+section.cta {
+  padding-block: 6rem;
+  position: relative;
+
+  background-position: 50% 35%;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $clr-overlay;
+    z-index: 1;
+  }
+
+  .wrapper {
+    position: relative;
+    z-index: 10;
+
+    color: $clr-base;
+
+    h2 {
+      color: inherit;
+      font-size: 9rem;
+    }
+
+    a.button {
+      display: block;
+      padding: 0.75rem 2rem;
+      text-decoration: none;
+      color: $clr-contrast;
+      background-color: $clr-base;
+      max-width: max-content;
+      text-transform: uppercase;
+
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+
+      margin-top: 2rem;
+
+      &:after {
+        content: '\2192';
+      }
+    }
+  }
+}
+
