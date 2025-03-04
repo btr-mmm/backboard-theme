@@ -1,7 +1,6 @@
 @use 'abstracts' as *;
 
 section.training-course {
-  position: relative;
   padding-block: 4rem;
 
   @include section-divider;

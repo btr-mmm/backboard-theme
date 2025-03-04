@@ -11,9 +11,11 @@
         src='<?php echo esc_url($img['url']) ?>'
         alt='<?php if (isset($img['alt']))
                 echo esc_attr($img['alt']) ?>'>
-      <h2><?php the_sub_field('name') ?></h2>
-      <div class="job-title"><?php the_sub_field('job_title') ?></div>
-      <?php the_sub_field('bio') ?>
+      <div class="content">
+        <h2><?php the_sub_field('name') ?></h2>
+        <div class="job-title"><?php the_sub_field('job_title') ?></div>
+        <?php the_sub_field('bio') ?>
+      </div>
     </div>
   </section>
 <?php endwhile; ?>

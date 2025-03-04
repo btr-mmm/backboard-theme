@@ -1,0 +1,60 @@
+@use 'abstracts' as *;
+
+section.leadership {
+  @include section-divider;
+  padding-block: 4rem;
+
+  .wrapper {
+    display: grid;
+    gap: 2rem;
+
+    img {
+      grid-area: image;
+    }
+
+    .content {
+      grid-area: content;
+
+      > :not(h2):not(:last-child) {
+        margin-bottom: 0.5rem;
+      }
+
+      .job-title {
+        font-size: 2rem;
+        text-transform: uppercase;
+        color: $clr-accent-light;
+      }
+    }
+  }
+
+  &:nth-of-type(even) > .wrapper {
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: 'image content';
+
+    @media (max-width: 800px) {
+      grid-template-columns: 1fr;
+      grid-template-areas: 'image' 'content';
+    }
+  }
+
+  &:nth-of-type(odd) > .wrapper {
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: 'content image';
+
+    @media (max-width: 800px) {
+      grid-template-columns: 1fr;
+      grid-template-areas: 'image' 'content';
+    }
+  }
+}
+
+section.about-program {
+  padding-block: 4rem;
+
+  @include section-divider;
+
+  .wrapper > :not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
+}
+

@@ -1,4 +1,6 @@
 @mixin section-divider {
+  position: relative;
+
   &::before {
     content: '';
     position: absolute;
