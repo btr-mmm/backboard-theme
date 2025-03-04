@@ -1,9 +1,11 @@
 @use 'abstracts' as *;
 
+// TODO: Fixed nav on homepage
+
 header {
-  // position: fixed;
-  // top: 0;
-  // left: 0;
+  position: sticky;
+  top: 0;
+  z-index: 10000;
   width: 100%;
   background-color: $clr-overlay;
   padding: 1rem 5rem;
