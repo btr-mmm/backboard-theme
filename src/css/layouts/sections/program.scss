@@ -1,0 +1,75 @@
+@use 'abstracts' as *;
+
+section.program {
+  padding: 4rem;
+
+  @include section-divider;
+
+  .disclaimer {
+    font-style: italic;
+  }
+
+  label.toggle-details {
+    display: block;
+    margin-top: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    font-weight: 800;
+    text-transform: uppercase;
+
+    &::after {
+      content: '\2192';
+    }
+  }
+
+  input.toggle-open {
+    display: none;
+  }
+
+  .toggle {
+    height: 0;
+    overflow: hidden;
+
+    .program-details {
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      gap: 2rem;
+      margin-block: 2rem;
+    }
+
+    .coach {
+      margin-block: 2rem;
+
+      .name {
+        font-size: 3rem;
+        font-family: Pridi, serif;
+        font-weight: 700;
+        color: $clr-accent-dark;
+        text-transform: uppercase;
+        line-height: 1.1;
+      }
+
+      .job-title {
+        font-size: 1.5rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: $clr-accent-light;
+      }
+    }
+
+    a.button {
+      margin-inline: auto;
+    }
+  }
+
+  input.toggle-open:checked + .toggle {
+    height: auto;
+  }
+
+  &:has(input.toggle-open:checked) label.toggle-details::after {
+    content: '\2193';
+  }
+}
+

@@ -4,8 +4,7 @@
 
 <?php if (have_rows('leagues')):
   while (have_rows('leagues')):
-    the_row();
-?>
+    the_row(); ?>
     <section class="program">
       <div class="wrapper">
         <h2><?php the_sub_field('title') ?></h2>
@@ -31,7 +30,7 @@
           More info
         </button>
         <div class="toggle">
-          <?php while (have_rows('')):
+          <?php while (have_rows('details')):
             the_row();
             $img = get_sub_field('image') ?>
             <section class="program-details">
@@ -42,26 +41,34 @@
                 <?php the_sub_field('content') ?>
               </div>
             </section>
-          <?php endwhile;
-          while (have_rows('coaches')):
-            the_row(); ?>
-            <article class="coach">
-              <div class="name">
-                <?php the_sub_field('name') ?>
-              </div>
-              <div class="job-title">
-                <?php the_sub_field('job_title') ?>
-              </div>
-              <div class="bio">
-                <?php the_sub_field('bio') ?>
-              </div>
-            </article>
-          <?php endwhile;
+            <?php endwhile;
+
+          if (have_rows('coaches')):
+            while (have_rows('coaches')):
+              the_row(); ?>
+              <article class="coach">
+                <div class="name">
+                  <?php the_sub_field('name') ?>
+                </div>
+                <div class="job-title">
+                  <?php the_sub_field('job_title') ?>
+                </div>
+                <div class="bio">
+                  <?php the_sub_field('bio') ?>
+                </div>
+              </article>
+            <?php endwhile;
+          endif;
+
           if ($registration = get_sub_field('link')): ?>
             <a href="<?php echo esc_url($registration['url']) ?>"
               class="button primary"
               target="<?php echo $registration['target'] ?>">
-              <?php echo esc_attr($registration['title']) ?>
+              <?php if (isset($registration['title']) && $registration['title']) {
+                echo esc_attr($registration['title']);
+              } else {
+                echo "Register now";
+              } ?>
             </a>
           <?php endif; ?>
         </div>

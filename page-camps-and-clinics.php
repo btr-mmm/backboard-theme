@@ -3,9 +3,9 @@
 <?php get_template_part('template-parts/hero', 'page') ?>
 
 <?php if (have_rows('programs')):
+  $row = 1;
   while (have_rows('programs')):
-    the_row();
-?>
+    the_row(); ?>
     <section class="program">
       <div class="wrapper">
         <h2><?php the_sub_field('title') ?></h2>
@@ -27,11 +27,12 @@
             <p class="disclaimer">*<?php echo esc_attr($disclaimer) ?></p>
           <?php endif; ?>
         <?php endwhile; ?>
-        <button class="toggle-details">
+        <label class="toggle-details" for="toggle<?php echo $row ?>">
           More info
-        </button>
+        </label>
+        <input class="toggle-open" type="checkbox" name="toggle<?php echo $row ?>" id="toggle<?php echo $row ?>">
         <div class="toggle">
-          <?php while (have_rows('')):
+          <?php while (have_rows('details')):
             the_row();
             $img = get_sub_field('image') ?>
             <section class="program-details">
@@ -42,27 +43,36 @@
                 <?php the_sub_field('content') ?>
               </div>
             </section>
-          <?php endwhile;
-          while (have_rows('coaches')):
-            the_row(); ?>
-            <article class="coach">
-              <div class="name">
-                <?php the_sub_field('name') ?>
-              </div>
-              <div class="job-title">
-                <?php the_sub_field('job_title') ?>
-              </div>
-              <div class="bio">
-                <?php the_sub_field('bio') ?>
-              </div>
-            </article>
-          <?php endwhile;
-          $registration = get_sub_field('link'); ?>
-          <a href="<?php echo esc_url($registration['url']) ?>"
-            class="button primary"
-            target="<?php echo $registration['target'] ?>">
-            <?php echo esc_attr($registration['title']) ?>
-          </a>
+            <?php endwhile;
+
+          if (have_rows('coaches')):
+            while (have_rows('coaches')):
+              the_row(); ?>
+              <article class="coach">
+                <div class="name">
+                  <?php the_sub_field('name') ?>
+                </div>
+                <div class="job-title">
+                  <?php the_sub_field('job_title') ?>
+                </div>
+                <div class="bio">
+                  <?php the_sub_field('bio') ?>
+                </div>
+              </article>
+            <?php endwhile;
+          endif;
+
+          if ($registration = get_sub_field('link')): ?>
+            <a href="<?php echo esc_url($registration['url']) ?>"
+              class="button primary"
+              target="<?php echo $registration['target'] ?>">
+              <?php if (isset($registration['title']) && $registration['title']) {
+                echo esc_attr($registration['title']);
+              } else {
+                echo "Register now";
+              } ?>
+            </a>
+          <?php endif; ?>
         </div>
       </div>
     </section>
