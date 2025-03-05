@@ -1,0 +1,22 @@
+@use 'abstracts' as *;
+
+section.main-content {
+  padding-block: 4rem;
+
+  @include section-divider;
+
+  .wrapper {
+    > h2:not(:first-child) {
+      margin-top: 4rem;
+    }
+
+    > h3:not(:first-child) {
+      margin-top: 2rem;
+    }
+
+    > :not(h2):not(h3):not(:first-child) {
+      margin-top: 0.5rem;
+    }
+  }
+}
+
