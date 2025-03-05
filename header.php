@@ -52,4 +52,7 @@
       </ul>
     </nav>
   </header>
+  <?php if (is_front_page()): ?>
+    <div class="dot-nav"></div>
+  <?php endif; ?>
   <main <?php if (is_front_page()) echo "id='scroll-container'" ?>>

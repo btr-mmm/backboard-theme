@@ -27,25 +27,6 @@ section.cta {
       color: inherit;
       font-size: 9rem;
     }
-
-    a.button {
-      display: block;
-      padding: 0.75rem 2rem;
-      text-decoration: none;
-      color: $clr-contrast;
-      background-color: $clr-base;
-      max-width: max-content;
-      text-transform: uppercase;
-
-      font-size: 1.5rem;
-      letter-spacing: 1px;
-
-      margin-top: 2rem;
-
-      &:after {
-        content: '\2192';
-      }
-    }
   }
 }
 
