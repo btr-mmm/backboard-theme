@@ -8,7 +8,7 @@
         <?php the_sub_field('title') ?>
       </h2>
       <?php the_sub_field('content') ?>
-      <a href="<?php echo esc_url($link['url']) ?>" class="button" target="<?php echo $link['target'] ?>">
+      <a href="<?php echo esc_url($link['url']) ?>" class="button base" target="<?php echo $link['target'] ?>">
         <?php echo esc_attr($link['title']) ?>
       </a>
     </div>

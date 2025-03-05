@@ -4,8 +4,6 @@ a.button {
   display: block;
   padding: 0.75rem 2rem;
   text-decoration: none;
-  color: $clr-contrast;
-  background-color: $clr-base;
   max-width: max-content;
   text-transform: uppercase;
 
@@ -14,8 +12,38 @@ a.button {
 
   margin-top: 2rem;
 
+  transition: background-color 250ms ease;
+
   &:after {
     content: '\2192';
+  }
+
+  &.base {
+    color: $clr-contrast;
+    background-color: $clr-base;
+
+    &:hover,
+    &:focus {
+      background-color: $clr-base-hover;
+    }
+
+    &:active {
+      background-color: $clr-base-active;
+    }
+  }
+
+  &.primary {
+    color: $clr-base;
+    background-color: $clr-primary;
+
+    &:hover,
+    &:focus {
+      background-color: $clr-primary-hover;
+    }
+
+    &:active {
+      background-color: $clr-primary-active;
+    }
   }
 }
 

@@ -20,7 +20,7 @@ while (have_rows('homepage_sections')):
         alt='<?php if (isset($img['alt'])) echo esc_attr($img['alt']) ?>'>
       <div class="content">
         <?php the_sub_field('body'); ?>
-        <a href="<?php echo esc_url($button['url']) ?>" class="button" target="<?php echo $link['target'] ?>">
+        <a href="<?php echo esc_url($button['url']) ?>" class="button base" target="<?php echo $link['target'] ?>">
           <?php echo esc_attr($button['title']) ?>
         </a>
       </div>
