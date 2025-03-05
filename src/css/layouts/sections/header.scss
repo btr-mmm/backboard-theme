@@ -1,7 +1,5 @@
 @use 'abstracts' as *;
 
-// TODO: Fixed nav on homepage
-
 header {
   position: sticky;
   top: 0;
@@ -14,6 +12,10 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  &#homepage-nav {
+    position: fixed;
+  }
 
   a:not(.active),
   a.active {

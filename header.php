@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <header>
+  <header <?php if (is_front_page()) echo "id='homepage-nav'" ?>>
     <a href="<?php echo site_url(); ?>" class="logo">
       Higher Learning Basketball
     </a>
