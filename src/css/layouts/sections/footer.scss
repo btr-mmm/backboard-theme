@@ -11,6 +11,11 @@ footer {
 
   background-color: $clr-primary;
 
+  @media (max-width: $breakpoint-md) {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
   &::after {
     content: '';
 
@@ -22,7 +27,7 @@ footer {
 
     background-image: url('../assets/images/footer-texture.png');
     background-size: cover;
-    background-position-y: 50%;
+    background-position: 50% 50%;
 
     opacity: 0.1;
   }
@@ -40,6 +45,10 @@ footer {
     line-height: 1;
     color: $clr-accent-dark;
     text-transform: uppercase;
+
+    @media (max-width: $breakpoint-md) {
+      text-align: center;
+    }
   }
 
   nav ul {
@@ -67,6 +76,10 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: end;
+
+    @media (max-width: $breakpoint-md) {
+      align-items: center;
+    }
 
     h2 {
       font-size: 1.5rem;
