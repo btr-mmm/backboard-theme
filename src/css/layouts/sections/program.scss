@@ -9,6 +9,14 @@ section.program {
     font-style: italic;
   }
 
+  .subtitle {
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: $clr-accent-light;
+    margin-bottom: 2rem;
+  }
+
   label.toggle-details {
     display: block;
     margin-top: 2rem;
