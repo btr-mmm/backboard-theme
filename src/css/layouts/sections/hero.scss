@@ -1,3 +1,5 @@
+@use 'abstracts' as *;
+
 section.hero {
   padding-block: 4rem;
 
@@ -7,7 +9,7 @@ section.hero {
     grid-template-areas: 'content image';
     gap: 4rem;
 
-    @media (max-width: 1000px) {
+    @media (max-width: $breakpoint-lg) {
       grid-template-columns: 1fr;
       grid-template-areas: 'image' 'content';
     }
@@ -25,6 +27,14 @@ section.hero {
     justify-content: flex-end;
     align-items: flex-start;
     gap: 4rem;
+
+    @media (max-width: $breakpoint-lg) {
+      text-align: center;
+      align-items: center;
+      justify-content: baseline;
+
+      gap: 2rem;
+    }
   }
 }
 

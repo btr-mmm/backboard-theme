@@ -4,5 +4,13 @@
   max-width: calc($wrapper-width + 8rem);
   padding-inline: 4rem;
   margin-inline: auto;
+
+  @media (max-width: $breakpoint-xl) {
+    padding-inline: 2rem;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding-inline: 1rem;
+  }
 }
 

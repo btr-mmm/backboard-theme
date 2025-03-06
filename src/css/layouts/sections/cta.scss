@@ -25,7 +25,12 @@ section.cta {
 
     h2 {
       color: inherit;
-      font-size: 9rem;
+
+      @include h1-scale;
+    }
+
+    :not(:first-child):not(:last-child) {
+      text-wrap: balance;
     }
   }
 }
