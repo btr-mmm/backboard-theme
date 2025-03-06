@@ -3,6 +3,7 @@
 <?php get_template_part('template-parts/hero', 'page') ?>
 
 <?php if (have_rows('leagues')):
+  $row = 1;
   while (have_rows('leagues')):
     the_row(); ?>
     <section class="program">
@@ -26,9 +27,10 @@
             <p class="disclaimer">*<?php echo esc_attr($disclaimer) ?></p>
           <?php endif; ?>
         <?php endwhile; ?>
-        <button class="toggle-details">
+        <label class="toggle-details" for="toggle<?php echo $row ?>">
           More info
-        </button>
+        </label>
+        <input class="toggle-open" type="checkbox" name="toggle<?php echo $row ?>" id="toggle<?php echo $row ?>">
         <div class="toggle">
           <?php while (have_rows('details')):
             the_row();
@@ -74,7 +76,8 @@
         </div>
       </div>
     </section>
-  <?php endwhile; ?>
+  <?php $row++;
+  endwhile; ?>
 <?php else: ?>
   <section class="main-content">
     <div class="wrapper">
