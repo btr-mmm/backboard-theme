@@ -28,7 +28,7 @@ section.leadership {
   }
 
   &:nth-of-type(even) > .wrapper {
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: min(max-content, 1fr) 2fr;
     grid-template-areas: 'image content';
 
     @media (max-width: 800px) {
@@ -38,7 +38,7 @@ section.leadership {
   }
 
   &:nth-of-type(odd) > .wrapper {
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 2fr min(max-content, 1fr);
     grid-template-areas: 'content image';
 
     @media (max-width: 800px) {

@@ -29,8 +29,6 @@ section.hero {
     gap: 4rem;
 
     @media (max-width: $breakpoint-lg) {
-      text-align: center;
-      align-items: center;
       justify-content: baseline;
 
       gap: 2rem;
