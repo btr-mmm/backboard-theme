@@ -76,7 +76,8 @@
         </div>
       </div>
     </section>
-  <?php endwhile; ?>
+  <?php $row++;
+  endwhile; ?>
 <?php else: ?>
   <section class="main-content">
     <div class="wrapper">
