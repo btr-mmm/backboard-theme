@@ -12,6 +12,9 @@
     <a href="<?php echo site_url(); ?>" class="logo">
       Higher Learning Basketball
     </a>
+    <button class="nav-toggle" title="Toggle navigation">
+      <i class="fa-solid fa-bars"></i>
+    </button>
     <nav>
       <ul>
         <li>

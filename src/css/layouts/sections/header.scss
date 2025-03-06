@@ -6,15 +6,37 @@ header {
   z-index: 10000;
   width: 100%;
   background-color: $clr-overlay;
-  padding: 1rem 5rem;
+  padding: 1rem 4rem;
 
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: 'logo nav';
   align-items: center;
+
+  color: $clr-base;
+
+  @media (max-width: $breakpoint-xl) {
+    padding: 1rem 2rem;
+
+    grid-template-areas: 'logo button' 'nav nav';
+  }
 
   &#homepage-nav {
     position: fixed;
+  }
+
+  button.nav-toggle {
+    display: none;
+    grid-area: button;
+
+    @media (max-width: $breakpoint-xl) {
+      display: block;
+      justify-self: end;
+      background: none;
+      border: none;
+      color: inherit;
+      cursor: pointer;
+    }
   }
 
   a:not(.active),
@@ -24,30 +46,62 @@ header {
   }
 
   a.logo {
+    grid-area: logo;
+    justify-self: start;
+
     font-family: 'Pridi', serif;
     text-transform: uppercase;
     font-size: 2rem;
     font-weight: 700;
+
+    @media (max-width: $breakpoint-2xl) {
+      font-size: 1.5rem;
+    }
   }
 
-  nav ul {
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    gap: 2.5rem;
+  nav {
+    grid-area: nav;
+    justify-self: end;
 
-    text-transform: uppercase;
+    transition: height 500ms ease-in-out;
 
-    li {
-      a {
-        &:hover {
-          text-decoration: underline;
-          text-decoration-skip-ink: auto;
+    @media (max-width: $breakpoint-xl) {
+      justify-self: center;
+      overflow-y: hidden;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 2.5rem;
+
+      text-align: center;
+      text-transform: uppercase;
+
+      li {
+        a {
+          &:hover {
+            text-decoration: underline;
+            text-decoration-skip-ink: auto;
+          }
+
+          &.active {
+            font-weight: 700;
+          }
         }
+      }
 
-        &.active {
-          font-weight: 700;
-        }
+      @media (max-width: $breakpoint-2xl) {
+        gap: 1rem;
+      }
+
+      @media (max-width: $breakpoint-md) {
+        flex-direction: column;
+        gap: 0.5rem;
       }
     }
   }
