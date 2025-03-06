@@ -1,7 +1,7 @@
 @use 'abstracts' as *;
 
 section.program {
-  padding: 4rem;
+  padding-block: 4rem;
 
   @include section-divider;
 
@@ -43,8 +43,22 @@ section.program {
     .program-details {
       display: grid;
       grid-template-columns: 2fr 3fr;
+      grid-template-areas: 'image content';
       gap: 2rem;
       margin-block: 2rem;
+
+      @media (max-width: $breakpoint-lg) {
+        grid-template-columns: 1fr;
+        grid-template-areas: 'image' 'content';
+      }
+
+      img {
+        grid-area: image;
+      }
+
+      .content {
+        grid-area: content;
+      }
     }
 
     .coach {

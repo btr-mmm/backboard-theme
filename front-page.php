@@ -14,7 +14,7 @@ while (have_rows('homepage_sections')):
     data-nav-title="<?php echo esc_attr($button['title']) ?>"
     style="background-image: url(<?php echo esc_url($bg['url']) ?>);">
     <h2><?php the_sub_field('title') ?></h2>
-    <div class="hover-content">
+    <div class="content-reveal">
       <img
         src='<?php echo esc_url($img['url']) ?>'
         alt='<?php if (isset($img['alt'])) echo esc_attr($img['alt']) ?>'>

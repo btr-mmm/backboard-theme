@@ -2,82 +2,126 @@
 
 main#scroll-container {
   height: 100vh;
-
   overflow-y: scroll;
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
+}
 
-  section.homepage-section {
-    height: 100vh;
+section.homepage-section {
+  height: 100vh;
+  position: relative;
+  scroll-snap-align: start;
+  color: $clr-base;
+  background-size: cover;
+  background-position: 50% 50%;
 
-    position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $clr-overlay;
+    z-index: 1;
+  }
 
-    scroll-snap-align: start;
+  h2 {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    z-index: 10;
+    color: inherit;
+    font-size: 20rem;
+    line-height: 0.8;
+    opacity: 1;
+    transition: opacity 500ms ease-in-out;
 
-    color: $clr-base;
+    @media (max-width: $breakpoint-lg) {
+      font-size: 15rem;
+    }
 
-    background-size: cover;
-    background-position: 50% 50%;
+    @media (max-width: $breakpoint-md) {
+      font-size: 10rem;
+      bottom: 1.5rem;
+      left: 1.5rem;
+    }
 
-    &::after {
-      content: '';
+    @media (max-width: $breakpoint-sm) {
+      font-size: 5rem;
+      bottom: 1rem;
+      left: 1rem;
+      max-width: 7ch;
+      overflow-wrap: break-word;
+      hyphens: auto;
+    }
+  }
 
-      position: absolute;
-      top: 0;
-      left: 0;
+  > .content-reveal {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 4rem;
+    padding: 4rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 90%;
+    z-index: 15;
+    opacity: 0;
+    transition: opacity 500ms ease-in-out;
+
+    @media (max-width: $breakpoint-md) {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding: 2rem;
       width: 100%;
-      height: 100%;
-
-      background-color: $clr-overlay;
-      z-index: 1;
     }
 
+    @media (max-width: $breakpoint-sm) {
+      padding: 1rem;
+      gap: 1rem;
+    }
+
+    img {
+      aspect-ratio: 5 / 3;
+      object-fit: cover;
+      border: 1px solid $clr-base;
+
+      @media (max-width: $breakpoint-md) {
+        max-height: 30vh;
+      }
+
+      @media (max-width: $breakpoint-sm) {
+        display: none;
+      }
+    }
+
+    .content {
+      font-size: 1.25rem;
+
+      @media (max-width: $breakpoint-sm) {
+        font-size: 1rem;
+      }
+
+      .button {
+        display: inline-block;
+        margin-top: 1rem;
+
+        @media (max-width: $breakpoint-sm) {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  &.content-revealed {
     h2 {
-      position: absolute;
-      bottom: 2rem;
-      left: 2rem;
-      z-index: 10;
+      opacity: 0;
+    }
 
-      color: inherit;
-      font-size: 20rem;
-      line-height: 0.8;
-
+    > .content-reveal {
       opacity: 1;
-      transition: opacity 500ms ease-in-out;
-    }
-
-    > .hover-content {
-      display: grid;
-      grid-template-columns: 2fr 3fr;
-      gap: 4rem;
-      padding: 4rem;
-
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 90%;
-      z-index: 15;
-
-      opacity: 0;
-      transition: opacity 500ms ease-in-out;
-
-      &:hover {
-        opacity: 1;
-      }
-
-      img {
-        aspect-ratio: 5 / 3;
-        object-fit: cover;
-        border: 1px solid $clr-base;
-      }
-
-      .content {
-        font-size: 1.25rem;
-      }
-    }
-
-    &:has(.hover-content:hover) h2 {
-      opacity: 0;
     }
   }
 }
