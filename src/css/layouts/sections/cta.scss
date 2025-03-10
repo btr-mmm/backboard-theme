@@ -24,13 +24,41 @@ section.cta {
     color: $clr-base;
 
     h2 {
-      color: inherit;
+      -webkit-text-stroke: 0.25rem $clr-primary;
+      text-stroke: 0.25rem $clr-primary;
+      color: transparent;
 
       @include h1-scale;
     }
 
     :not(:first-child):not(:last-child) {
       text-wrap: balance;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 1rem;
+
+      border: 2px solid $clr-base;
+      color: $clr-base;
+
+      background: none;
+
+      :hover,
+      :focus {
+        border-color: $clr-base-hover;
+        color: $clr-base-hover;
+      }
+
+      :active {
+        border-color: $clr-base-active;
+        color: $clr-base-active;
+      }
+
+      @media (max-width: $breakpoint-sm) {
+        width: 100%;
+        text-align: center;
+      }
     }
 
     @media (max-width: $breakpoint-lg) {
