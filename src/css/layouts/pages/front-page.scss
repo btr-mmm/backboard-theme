@@ -31,7 +31,9 @@ section.homepage-section {
     bottom: 2rem;
     left: 2rem;
     z-index: 10;
-    color: inherit;
+    -webkit-text-stroke: 0.5rem $clr-primary;
+    text-stroke: 0.5rem $clr-primary;
+    color: transparent;
     font-size: 20rem;
     line-height: 0.8;
     opacity: 1;
@@ -53,6 +55,7 @@ section.homepage-section {
       left: 1rem;
       max-width: 7ch;
       overflow-wrap: break-word;
+      -webkit-hyphens: auto;
       hyphens: auto;
     }
   }
