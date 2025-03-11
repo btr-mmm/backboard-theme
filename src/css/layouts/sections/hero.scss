@@ -1,6 +1,143 @@
 @use 'abstracts' as *;
 
 section.hero {
+  position: relative;
+  min-height: 80vh;
+  color: $clr-base;
+  background-size: cover;
+  background-position: 50% 50%;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $clr-overlay;
+    z-index: 1;
+  }
+
+  h1 {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    z-index: 10;
+    -webkit-text-stroke: 0.25rem $clr-primary;
+    text-stroke: 0.25rem $clr-primary;
+    color: transparent;
+    font-size: 10rem;
+    line-height: 0.8;
+    opacity: 1;
+    transition: opacity 500ms ease-in-out;
+
+    @media (max-width: $breakpoint-lg) {
+      font-size: 8rem;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      font-size: 6rem;
+      bottom: 1.5rem;
+      left: 1.5rem;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      font-size: 4rem;
+      bottom: 1rem;
+      left: 1rem;
+      max-width: 12ch;
+      overflow-wrap: break-word;
+      -webkit-hyphens: auto;
+      hyphens: auto;
+    }
+  }
+
+  .hero-content {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 4rem;
+    padding: 4rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 90%;
+    z-index: 15;
+    opacity: 0;
+    transition: opacity 500ms ease-in-out;
+
+    @media (max-width: $breakpoint-md) {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding: 2rem;
+      width: 100%;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      padding: 1rem;
+      gap: 1rem;
+    }
+
+    img {
+      aspect-ratio: 5 / 3;
+      object-fit: cover;
+      border: 0.25rem solid $clr-base;
+
+      @media (max-width: $breakpoint-md) {
+        max-height: 30vh;
+      }
+
+      @media (max-width: $breakpoint-sm) {
+        display: none;
+      }
+    }
+
+    .content {
+      font-size: 1.25rem;
+
+      @media (max-width: $breakpoint-sm) {
+        font-size: 1rem;
+      }
+
+      .button {
+        display: inline-block;
+        margin-top: 1rem;
+        border: 2px solid $clr-base;
+        color: $clr-base;
+        background: none;
+
+        &:hover,
+        &:focus {
+          border-color: $clr-base-hover;
+          color: $clr-base-hover;
+        }
+
+        &:active {
+          border-color: $clr-base-active;
+          color: $clr-base-active;
+        }
+
+        @media (max-width: $breakpoint-sm) {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  &.content-revealed {
+    h1 {
+      opacity: 0;
+    }
+
+    .hero-content {
+      opacity: 1;
+    }
+  }
+}
+
+/* Old hero styles
+section.hero {
   padding-block: 4rem;
 
   &.has-image .wrapper {
@@ -35,4 +172,5 @@ section.hero {
     }
   }
 }
+*/
 

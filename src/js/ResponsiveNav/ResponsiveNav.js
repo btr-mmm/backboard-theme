@@ -15,6 +15,7 @@ export class ResponsiveNav {
   }
 
   init() {
+    // TODO: DOMContentLoaded checks
     this.toggleButton.addEventListener('click', this.toggle.bind(this));
 
     this.handleResize();

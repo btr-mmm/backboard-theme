@@ -1,7 +1,7 @@
 @use 'abstracts' as *;
 
 header {
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 10000;
   width: 100%;
