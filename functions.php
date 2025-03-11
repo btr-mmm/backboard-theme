@@ -17,6 +17,7 @@ if (!class_exists('BackboardTheme')) {
       $theme = wp_get_theme();
       $this->themeVersion = $theme->get('Version');
 
+      $this->loadPostTypes();
       $this->loadACFFields();
       $this->loadOptionsPages();
 
@@ -59,6 +60,25 @@ if (!class_exists('BackboardTheme')) {
       add_theme_support('title-tag');
       add_theme_support('automatic-feed-links');
       add_theme_support('post-thumbnails');
+    }
+
+    /**
+     * Load all ACF field groups from ./inc/acf-fields
+     */
+    private function loadPostTypes()
+    {
+      $postTypesDirectory = get_template_directory() . '/inc/post-types/';
+
+      if (!file_exists($postTypesDirectory)) {
+        return;
+      }
+
+      $postTypes = glob($postTypesDirectory . '*.php');
+      if (!empty($postTypes)) {
+        foreach ($postTypes as $file) {
+          require_once $file;
+        }
+      }
     }
 
     /**
