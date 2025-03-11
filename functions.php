@@ -63,7 +63,7 @@ if (!class_exists('BackboardTheme')) {
     }
 
     /**
-     * Load all ACF field groups from ./inc/acf-fields
+     * Load all custom post types from ./inc/post-types
      */
     private function loadPostTypes()
     {
