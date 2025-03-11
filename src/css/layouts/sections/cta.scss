@@ -27,7 +27,7 @@ section.cta {
       -webkit-text-stroke: 0.25rem $clr-primary;
       text-stroke: 0.25rem $clr-primary;
       color: transparent;
-
+      letter-spacing: 0.5rem;
       @include h1-scale;
     }
 

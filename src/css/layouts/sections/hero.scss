@@ -2,7 +2,7 @@
 
 section.hero {
   position: relative;
-  min-height: 80vh;
+  min-height: 70vh;
   color: $clr-base;
   background-size: cover;
   background-position: 50% 50%;
@@ -27,6 +27,7 @@ section.hero {
     -webkit-text-stroke: 0.25rem $clr-primary;
     text-stroke: 0.25rem $clr-primary;
     color: transparent;
+    letter-spacing: 0.5rem;
     font-size: 10rem;
     line-height: 0.8;
     opacity: 1;

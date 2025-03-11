@@ -31,9 +31,10 @@ section.homepage-section {
     bottom: 2rem;
     left: 2rem;
     z-index: 10;
-    -webkit-text-stroke: 0.25rem $clr-primary;
-    text-stroke: 0.25rem $clr-primary;
+    -webkit-text-stroke: 0.375rem $clr-primary;
+    text-stroke: 0.375rem $clr-primary;
     color: transparent;
+    letter-spacing: 0.5rem;
     font-size: 20rem;
     line-height: 0.8;
     opacity: 1;
