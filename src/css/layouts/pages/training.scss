@@ -5,16 +5,17 @@ section.training-course {
 
   @include section-divider;
 
-  .wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
-  }
-
   section.intro {
     h2 {
       margin-bottom: 2rem;
     }
+    margin-bottom: 2rem;
+  }
+
+  .toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
   }
 
   section.course-details {
@@ -54,6 +55,49 @@ section.training-course {
 
     h4 {
       margin-top: 2rem;
+    }
+  }
+
+  label.toggle-details {
+    display: block;
+    margin-top: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    font-weight: 800;
+    text-transform: uppercase;
+
+    &::after {
+      content: '\2193';
+    }
+  }
+
+  input.toggle-open {
+    display: none;
+  }
+
+  .toggle {
+    height: 0;
+    overflow: hidden;
+  }
+
+  input.toggle-open:checked + .toggle {
+    height: auto;
+    margin-top: 2rem;
+  }
+
+  &:has(input.toggle-open:checked) label.toggle-details::after {
+    content: '\2191';
+  }
+
+  section.videos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: 1fr;
     }
   }
 }

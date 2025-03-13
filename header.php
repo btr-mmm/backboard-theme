@@ -40,11 +40,20 @@
         </li>
         <li>
           <a
-            href="<?php echo site_url('/college-consulting') ?>"
-            <?php if (is_page('college-consulting')) echo 'class="active"' ?>>
+            href="<?php echo site_url('/consulting') ?>"
+            <?php if (is_page('consulting')) echo 'class="active"' ?>>
             Consulting
           </a>
         </li>
+        <?php if (get_field('premier_enabled', 'option')): ?>
+          <li>
+            <a
+              href="<?php echo site_url('/premier-teams') ?>"
+              <?php if (is_page('premier-teams')) echo 'class="active"' ?>>
+              Premier Teams
+            </a>
+          </li>
+        <?php endif; ?>
         <li>
           <a
             href="<?php echo site_url('/about') ?>"
