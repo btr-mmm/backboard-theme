@@ -1,0 +1,30 @@
+@use 'abstracts' as *;
+
+section.program-listings {
+  padding-block: 4rem;
+
+  h2 {
+    margin-bottom: 2rem;
+  }
+
+  article.program-listing {
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    grid-template-areas: 'image content';
+    gap: 4rem;
+
+    img {
+      grid-area: image;
+    }
+
+    content {
+      grid-area: content;
+    }
+  }
+
+  :not(h2) + article.program-listing {
+    @include section-divider;
+    padding-block: 2rem;
+  }
+}
+

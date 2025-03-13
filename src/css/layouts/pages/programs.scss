@@ -1,0 +1,81 @@
+@use 'abstracts' as *;
+
+section.program-details {
+  padding-block: 4rem;
+
+  .wrapper {
+    display: grid;
+    gap: 4rem;
+
+    h2 {
+      grid-area: heading;
+    }
+
+    img,
+    .embed-container {
+      grid-area: image;
+    }
+
+    .content {
+      grid-area: content;
+
+      & > * {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  &:nth-child(even) .wrapper {
+    grid-template-columns: 2fr 3fr;
+    grid-template-areas: 'heading heading' 'image content';
+    gap: 2rem;
+    margin-block: 2rem;
+
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: 1fr;
+      grid-template-areas: 'image' 'heading' 'content';
+    }
+  }
+
+  &:nth-child(odd) .wrapper {
+    grid-template-columns: 3fr 2fr;
+    grid-template-areas: 'heading heading' 'content image';
+    gap: 2rem;
+
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: 1fr;
+      grid-template-areas: 'image' 'heading' 'content';
+    }
+  }
+}
+
+:not(section.program-hero) + section.program-details {
+  @include section-divider;
+}
+
+section.other-info {
+  padding-block: 4rem;
+
+  @include section-divider;
+
+  a.button {
+    margin-inline: auto;
+  }
+
+  .wrapper > * {
+    margin-block: 2rem;
+  }
+
+  h2 {
+    margin-bottom: 1rem;
+  }
+
+  article.coach {
+    p.job-title {
+      font-size: 1.25rem;
+      color: $clr-accent-light;
+      text-transform: uppercase;
+    }
+  }
+}
+

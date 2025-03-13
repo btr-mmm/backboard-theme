@@ -37,6 +37,7 @@ function registerLeaguePostType()
     'public' => true,
     'show_in_rest' => true,
     'menu_icon' => 'dashicons-image-filter',
+    'has_archive' => false,
     'supports' => array(
       0 => 'title',
       1 => 'thumbnail',

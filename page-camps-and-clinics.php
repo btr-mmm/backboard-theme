@@ -2,90 +2,61 @@
 
 <?php get_template_part('template-parts/hero', 'page') ?>
 
-<?php if (have_rows('programs')):
-  $row = 1;
-  while (have_rows('programs')):
-    the_row(); ?>
-    <section class="program">
-      <div class="wrapper">
-        <h2><?php the_sub_field('title') ?></h2>
-        <?php if (get_sub_field('sold_out')): ?>
-          <div class="subtitle">(Sold out)</div>
-        <?php endif; ?>
-        <?php while (have_rows('info')):
-          the_row(); ?>
-          <?php if ($who = get_sub_field('who')): ?>
-            <p class="who"><strong>Who:</strong> <?php echo esc_attr($who); ?></p>
-          <?php endif; ?>
-          <?php if ($when = get_sub_field('when')): ?>
-            <p class="when"><strong>When:</strong> <?php echo esc_attr($when); ?></p>
-          <?php endif; ?>
-          <?php if ($where = get_sub_field('where')): ?>
-            <p class="where"><strong>Where:</strong> <?php echo esc_attr($where); ?></p>
-          <?php endif; ?>
-          <?php if ($disclaimer = get_sub_field('disclaimer')): ?>
-            <p class="disclaimer">*<?php echo esc_attr($disclaimer) ?></p>
-          <?php endif; ?>
-        <?php endwhile; ?>
-        <label class="toggle-details" for="toggle<?php echo $row ?>">
-          More info
-        </label>
-        <input class="toggle-open" type="checkbox" name="toggle<?php echo $row ?>" id="toggle<?php echo $row ?>">
-        <div class="toggle">
-          <?php while (have_rows('details')):
-            the_row();
-            $img = get_sub_field('image') ?>
-            <section class="program-details">
-              <img
-                src='<?php echo esc_url($img['url']) ?>'
-                alt='<?php if (isset($img['alt'])) echo esc_attr($img['alt']) ?>'>
-              <div class="content">
-                <?php the_sub_field('content') ?>
-              </div>
-            </section>
-            <?php endwhile;
+<?php
+$today = date('Ymd');
 
-          if (have_rows('coaches')):
-            while (have_rows('coaches')):
+$programQuery = new WP_Query(array(
+  'post_type' => 'program',
+  'posts_per_page' => -1,
+  'meta_query' => [
+    [
+      'key' => 'end_date',
+      'value' => $today,
+      'compare' => '>=',
+      'type' => 'DATE',
+    ],
+  ],
+  'meta_key' => 'start_date',
+  'orderby' => 'meta_value',
+  'order' => 'ASC',
+)) ?>
+
+<section class="program-listings">
+  <div class="wrapper">
+    <h2>Upcoming Camps & Clinics</h2>
+    <?php if ($programQuery->have_posts()):
+      while ($programQuery->have_posts()):
+        $programQuery->the_post();
+        $img = get_field('image');
+    ?>
+        <article class="program-listing">
+          <img
+            src='<?php echo esc_url($img['url']) ?>'
+            alt='<?php if (isset($img['alt'])) echo esc_attr($img['alt']) ?>'>
+          <div class="content">
+            <h3><?php the_title(); ?></h3>
+            <?php while (have_rows('vitals')):
               the_row(); ?>
-              <article class="coach">
-                <div class="name">
-                  <?php the_sub_field('name') ?>
-                </div>
-                <div class="job-title">
-                  <?php the_sub_field('job_title') ?>
-                </div>
-                <div class="bio">
-                  <?php the_sub_field('bio') ?>
-                </div>
-              </article>
-            <?php endwhile;
-          endif;
-
-          if ($registration = get_sub_field('link')): ?>
-            <a href="<?php echo esc_url($registration['url']) ?>"
-              class="button primary"
-              target="<?php echo $registration['target'] ?>">
-              <?php if (isset($registration['title']) && $registration['title']) {
-                echo esc_attr($registration['title']);
-              } else {
-                echo "Register now";
-              } ?>
+              <p><strong>Who:</strong> <?php the_sub_field('who') ?></p>
+              <p><strong>When:</strong> <?php the_sub_field('when') ?></p>
+              <p><strong>Where:</strong> <?php the_sub_field('where') ?></p>
+              <p><em>*<?php the_sub_field('disclaimer') ?></em></p>
+            <?php endwhile; ?>
+            <a href="<?php the_permalink(); ?>" class="button primary">
+              More details
             </a>
-          <?php endif; ?>
-        </div>
-      </div>
-    </section>
-  <?php $row++;
-  endwhile; ?>
-<?php else: ?>
-  <section class="main-content">
-    <div class="wrapper">
-      <h2>More leagues coming soon!</h2>
-      <p>We're working on setting up our next set of leagues. Check back later to see what we have in store!</p>
-    </div>
-  </section>
-<?php endif; ?>
+          </div>
+        </article>
+      <?php endwhile;
+
+    else: ?>
+      <p>We're still working on our upcoming camps & clinics. Check back soon!</p>
+
+    <?php endif;
+    wp_reset_postdata(); ?>
+
+  </div>
+</section>
 
 <?php get_template_part('template-parts/cta') ?>
 

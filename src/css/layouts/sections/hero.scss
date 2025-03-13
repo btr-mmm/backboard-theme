@@ -54,6 +54,14 @@ section.hero {
     }
   }
 
+  h2 {
+    color: inherit;
+
+    margin-bottom: 1rem;
+
+    @include h3-scale;
+  }
+
   .hero-content {
     display: grid;
     grid-template-columns: 2fr 3fr;
@@ -100,28 +108,8 @@ section.hero {
         font-size: 1rem;
       }
 
-      .button {
-        display: inline-block;
-        margin-top: 1rem;
-        border: 2px solid $clr-base;
-        color: $clr-base;
-        background: none;
-
-        &:hover,
-        &:focus {
-          border-color: $clr-base-hover;
-          color: $clr-base-hover;
-        }
-
-        &:active {
-          border-color: $clr-base-active;
-          color: $clr-base-active;
-        }
-
-        @media (max-width: $breakpoint-sm) {
-          width: 100%;
-          text-align: center;
-        }
+      & > :not(:last-child) {
+        margin-bottom: 1rem;
       }
     }
   }

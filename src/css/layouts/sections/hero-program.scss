@@ -5,6 +5,8 @@ section.program-hero {
 
   background-color: $clr-primary;
 
+  color: $clr-base;
+
   .wrapper {
     display: grid;
     grid-template-columns: 3fr 2fr;
@@ -22,6 +24,8 @@ section.program-hero {
   }
 
   h1 {
+    color: inherit;
+
     @include h2-scale;
   }
 
