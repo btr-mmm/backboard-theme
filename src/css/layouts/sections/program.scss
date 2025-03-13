@@ -3,7 +3,9 @@
 section.program {
   padding-block: 4rem;
 
-  @include section-divider;
+  &:not(:first-of-type) {
+    @include section-divider;
+  }
 
   .disclaimer {
     font-style: italic;

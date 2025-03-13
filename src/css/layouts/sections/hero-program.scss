@@ -1,0 +1,42 @@
+@use 'abstracts' as *;
+
+section.program-hero {
+  padding-block: 4rem;
+
+  background-color: $clr-primary;
+
+  .wrapper {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-template-areas: 'content image';
+    gap: 4rem;
+
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: 1fr;
+      grid-template-areas: 'image' 'content';
+    }
+  }
+
+  img {
+    grid-area: image;
+  }
+
+  h1 {
+    @include h2-scale;
+  }
+
+  .content {
+    grid-area: content;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 0.5rem;
+
+    @media (max-width: $breakpoint-lg) {
+      justify-content: baseline;
+    }
+  }
+}
+
