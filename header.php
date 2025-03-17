@@ -20,14 +20,14 @@
         <li>
           <a
             href="<?php echo site_url('/camps-and-clinics') ?>"
-            <?php if (is_page('camps-and-clinics')) echo 'class="active"' ?>>
+            <?php if (is_page('camps-and-clinics') || is_singular('program')) echo 'class="active"' ?>>
             Camps & Clinics
           </a>
         </li>
         <li>
           <a
             href="<?php echo site_url('/leagues') ?>"
-            <?php if (is_page('leagues')) echo 'class="active"' ?>>
+            <?php if (is_page('leagues') || is_singular('league')) echo 'class="active"' ?>>
             Leagues
           </a>
         </li>
