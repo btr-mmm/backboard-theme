@@ -35,6 +35,9 @@ if (!class_exists('BackboardTheme')) {
       // Add theme supports
       add_action('after_setup_theme', [$this, 'themeSupports']);
 
+      // Add image preloads
+      add_action('wp_head', [$this, 'preloadImages'], 5);
+
       // Change title separator
       add_filter('document_title_separator', function ($sep) {
         return ('|');
@@ -49,6 +52,31 @@ if (!class_exists('BackboardTheme')) {
     {
       wp_enqueue_style('backboard', get_template_directory_uri() . '/dist/main.min.css', [], $this->themeVersion);
       wp_enqueue_script('backboard', get_template_directory_uri() . '/dist/bundle.min.js', ['jquery'], $this->themeVersion, true);
+    }
+
+    public function preloadImages()
+    {
+      if (is_front_page()) {
+        $postID = get_the_ID();
+
+        // Get the background image of the first section
+        $backgroundImage = get_field('homepage_sections', $postID)[0]['background'];
+        $imgUrl = esc_url($backgroundImage['url']);
+
+        if ($backgroundImage) {
+          echo "<link rel='preload' href='$imgUrl' as='image' crossorigin='anonymous'>";
+        }
+      } elseif (is_page()) {
+        $postID = get_the_ID();
+
+        // Get the background image of the first section
+        $backgroundImage = get_field('page_hero', $postID)['background_image'];
+        $imgUrl = esc_url($backgroundImage['url']);
+
+        if ($backgroundImage) {
+          echo "<link rel='preload' href='$imgUrl' as='image' crossorigin='anonymous'>";
+        }
+      }
     }
 
     /**
