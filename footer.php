@@ -3,7 +3,7 @@
   <footer>
 
     <div class="logo">
-      Higher Learning Basketball
+      <img src="<?php echo get_template_directory_uri() . '/dist/assets/images/logo-stack-white.png' ?>" alt="Higher Learning Basketball">
     </div>
 
     <nav>

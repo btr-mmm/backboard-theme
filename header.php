@@ -10,7 +10,7 @@
 <body>
   <header <?php if (is_front_page()) echo "id='homepage-nav'" ?>>
     <a href="<?php echo site_url(); ?>" class="logo">
-      Higher Learning Basketball
+      <img src="<?php echo get_template_directory_uri() . '/dist/assets/images/logo-horiz-orange.png' ?>" alt="Higher Learning Basketball">
     </a>
     <button class="nav-toggle" title="Toggle navigation">
       <i class="fa-solid fa-bars"></i>
