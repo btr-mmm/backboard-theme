@@ -26,5 +26,9 @@ section.program-listings {
     @include section-divider;
     padding-block: 2rem;
   }
+
+  h2 + article.program-listing {
+    padding-bottom: 2rem;
+  }
 }
 
