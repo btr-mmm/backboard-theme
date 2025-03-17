@@ -61,6 +61,11 @@ section.homepage-section {
     }
   }
 
+  h3 {
+    font-family: 'Pridi', serif;
+    color: inherit;
+  }
+
   > .content-reveal {
     display: grid;
     grid-template-columns: 2fr 3fr;
