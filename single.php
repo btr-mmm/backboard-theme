@@ -52,19 +52,21 @@ endif; ?>
           <?php the_field('price') ?>
         </p>
       </section>
-    <?php endif;
+      <?php endif;
 
     while (have_rows('contact_info')):
-      the_row(); ?>
-      <div class="contact">
-        <h2>Questions?</h2>
-        <p>Contact <?php the_sub_field('name') ?> at
-          <a href="mailto:<?php the_sub_field('email') ?>" target="_blank">
-            <?php the_sub_field('email') ?>.
-          </a>
-        </p>
-      </div>
-    <?php endwhile; ?>
+      the_row();
+      if (get_sub_field('name') && get_sub_field('email')): ?>
+        <div class="contact">
+          <h2>Questions?</h2>
+          <p>Contact <?php the_sub_field('name') ?> at
+            <a href="mailto:<?php the_sub_field('email') ?>" target="_blank">
+              <?php the_sub_field('email') ?>.
+            </a>
+          </p>
+        </div>
+    <?php endif;
+    endwhile; ?>
     <a href="<?php the_field('registration') ?>" class="button primary" target="_blank">
       Register Now
     </a>
