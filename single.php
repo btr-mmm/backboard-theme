@@ -42,33 +42,33 @@ endif; ?>
           </article>
         <?php endwhile; ?>
       </section>
+    <?php endif; ?>
 
-      <?php if (get_field('price')): ?>
+    <?php if (get_field('price')): ?>
 
-        <section class="price">
-          <h2>Price</h2>
-          <p>
-            <?php the_field('price') ?>
-          </p>
-        </section>
-      <?php endif;
+      <section class="price">
+        <h2>Price</h2>
+        <p>
+          <?php the_field('price') ?>
+        </p>
+      </section>
+    <?php endif;
 
-      while (have_rows('contact_info')):
-        the_row(); ?>
-        <div class="contact">
-          <h2>Questions?</h2>
-          <p>Contact <?php the_sub_field('name') ?> at
-            <a href="mailto:<?php the_sub_field('email') ?>" target="_blank">
-              <?php the_sub_field('email') ?>.
-            </a>
-          </p>
-        </div>
-      <?php endwhile; ?>
-      <a href="<?php the_field('registration') ?>" class="button primary" target="_blank">
-        Register Now
-      </a>
+    while (have_rows('contact_info')):
+      the_row(); ?>
+      <div class="contact">
+        <h2>Questions?</h2>
+        <p>Contact <?php the_sub_field('name') ?> at
+          <a href="mailto:<?php the_sub_field('email') ?>" target="_blank">
+            <?php the_sub_field('email') ?>.
+          </a>
+        </p>
+      </div>
+    <?php endwhile; ?>
+    <a href="<?php the_field('registration') ?>" class="button primary" target="_blank">
+      Register Now
+    </a>
   </div>
 </section>
-<?php endif; ?>
 
 <?php get_footer(); ?>
