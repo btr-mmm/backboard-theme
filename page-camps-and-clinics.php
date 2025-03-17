@@ -35,13 +35,7 @@ $programQuery = new WP_Query(array(
             alt='<?php if (isset($img['alt'])) echo esc_attr($img['alt']) ?>'>
           <div class="content">
             <h3><?php the_title(); ?></h3>
-            <?php while (have_rows('vitals')):
-              the_row(); ?>
-              <p><strong>Who:</strong> <?php the_sub_field('who') ?></p>
-              <p><strong>When:</strong> <?php the_sub_field('when') ?></p>
-              <p><strong>Where:</strong> <?php the_sub_field('where') ?></p>
-              <p><em>*<?php the_sub_field('disclaimer') ?></em></p>
-            <?php endwhile; ?>
+            <?php get_template_part('template-parts/program-vitals'); ?>
             <a href="<?php the_permalink(); ?>" class="button primary">
               More details
             </a>

@@ -9,13 +9,7 @@
       <?php if (get_field('sold_out')): ?>
         <p class="sold-out">(Sold out)</p>
       <?php endif; ?>
-      <?php while (have_rows('vitals')):
-        the_row(); ?>
-        <p><strong>Who:</strong> <?php the_sub_field('who') ?></p>
-        <p><strong>When:</strong> <?php the_sub_field('when') ?></p>
-        <p><strong>Where:</strong> <?php the_sub_field('where') ?></p>
-        <p><em>*<?php the_sub_field('disclaimer') ?></em></p>
-      <?php endwhile; ?>
+      <?php get_template_part('template-parts/program-vitals') ?>
     </div>
     <img
       src='<?php echo esc_url($image['url']) ?>'
