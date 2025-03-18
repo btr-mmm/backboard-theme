@@ -65,11 +65,15 @@ endif; ?>
             </a>
           </p>
         </div>
-    <?php endif;
-    endwhile; ?>
-    <a href="<?php the_field('registration') ?>" class="button primary" target="_blank">
-      Register Now
-    </a>
+      <?php endif;
+
+    endwhile;
+
+    if (get_field('registration')): ?>
+      <a href="<?php the_field('registration') ?>" class="button primary" target="_blank">
+        Register Now
+      </a>
+    <?php endif; ?>
   </div>
 </section>
 

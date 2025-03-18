@@ -8,8 +8,16 @@
       </h1>
       <?php if (get_field('sold_out')): ?>
         <p class="sold-out">(Sold out)</p>
+      <?php endif;
+
+      get_template_part('template-parts/program-vitals');
+
+      if (get_field('registration')): ?>
+        <a href="<?php the_field('registration') ?>" class="button base" target="_blank">
+          Register Now
+        </a>
       <?php endif; ?>
-      <?php get_template_part('template-parts/program-vitals') ?>
+
     </div>
     <img
       src='<?php echo esc_url($image['url']) ?>'
