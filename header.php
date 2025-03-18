@@ -38,14 +38,18 @@
             Training
           </a>
         </li>
-        <li>
-          <a
-            href="<?php echo site_url('/consulting') ?>"
-            <?php if (is_page('consulting')) echo 'class="active"' ?>>
-            Consulting
-          </a>
-        </li>
-        <?php if (get_field('premier_enabled', 'option')): ?>
+
+        <?php if (get_field('consulting_enabled', 'option')): ?>
+          <li>
+            <a
+              href="<?php echo site_url('/consulting') ?>"
+              <?php if (is_page('consulting')) echo 'class="active"'; ?>>
+              Consulting
+            </a>
+          </li>
+        <?php endif;
+
+        if (get_field('premier_enabled', 'option')): ?>
           <li>
             <a
               href="<?php echo site_url('/premier-teams') ?>"
