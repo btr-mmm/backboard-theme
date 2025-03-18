@@ -11,6 +11,7 @@ section.homepage-section {
   height: 100dvh;
   position: relative;
   scroll-snap-align: start;
+  overflow: hidden;
   color: $clr-base;
   background-size: cover;
   background-position: 50% 50%;
@@ -39,6 +40,10 @@ section.homepage-section {
     line-height: 0.8;
     opacity: 1;
     transition: opacity 500ms ease-in-out;
+
+    @media (max-width: $breakpoint-2xl) {
+      font-size: 17.5rem;
+    }
 
     @media (max-width: $breakpoint-lg) {
       font-size: 15rem;
