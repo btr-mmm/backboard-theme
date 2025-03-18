@@ -3,6 +3,7 @@
 section.hero {
   position: relative;
   min-height: 70vh;
+  padding-top: 4rem;
   color: $clr-base;
   background-size: cover;
   background-position: 50% 50%;
@@ -83,8 +84,11 @@ section.hero {
     }
 
     @media (max-width: $breakpoint-sm) {
+      position: relative;
       padding: 1rem;
       gap: 1rem;
+      width: 100%;
+      margin-top: 2rem;
     }
 
     img {
