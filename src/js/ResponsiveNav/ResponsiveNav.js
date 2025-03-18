@@ -1,9 +1,16 @@
+import mobileLogo from '../../assets/images/logo-stack-orange.png';
+import desktopLogo from '../../assets/images/logo-horiz-orange.png';
+
 export class ResponsiveNav {
   constructor() {
     const header = document.querySelector('header');
 
     this.toggleButton = header.querySelector('button.nav-toggle');
     this.nav = header.querySelector('nav');
+
+    this.logo = header.querySelector('.logo > img');
+
+    console.log(this.mobileLogoUrl, this.desktopLogoUrl);
 
     this.navOpen = false;
     this.mobileBreakpoint = 1200;
@@ -15,7 +22,6 @@ export class ResponsiveNav {
   }
 
   init() {
-    // TODO: DOMContentLoaded checks
     this.toggleButton.addEventListener('click', this.toggle.bind(this));
 
     this.handleResize();
@@ -39,8 +45,10 @@ export class ResponsiveNav {
     if (windowWidth >= this.mobileBreakpoint) {
       this.nav.style.height = 'auto';
       this.toggleButton.style.display = 'none';
+      this.logo.src = desktopLogo;
     } else {
       this.toggleButton.style.display = 'block';
+      this.logo.src = mobileLogo;
 
       if (this.navOpen) {
         this.nav.style.height = 'auto';

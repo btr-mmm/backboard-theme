@@ -9,7 +9,7 @@ header {
   padding: 1rem 4rem;
 
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 1fr auto;
   grid-template-areas: 'logo nav';
   align-items: center;
 
@@ -55,7 +55,8 @@ header {
     font-weight: 700;
 
     img {
-      max-width: 25rem;
+      max-width: 25ch;
+      max-height: 4rem;
     }
 
     @media (max-width: $breakpoint-2xl) {
