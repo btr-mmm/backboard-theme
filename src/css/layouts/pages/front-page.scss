@@ -8,7 +8,7 @@ main#scroll-container {
 }
 
 section.homepage-section {
-  height: 100vh;
+  height: 100dvh;
   position: relative;
   scroll-snap-align: start;
   color: $clr-base;
