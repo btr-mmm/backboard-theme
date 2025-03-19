@@ -58,7 +58,7 @@
       <div class="icon-wrapper">
         <?php while (have_rows('socials', 'option')):
           the_row(); ?>
-          <a href="<?php the_sub_field('link') ?>" title="Follow us on <?php the_sub_field('network_name') ?>">
+          <a href="<?php the_sub_field('link') ?>" title="Follow us on <?php the_sub_field('network_name') ?>" target="_blank">
             <i class="<?php the_sub_field('icon') ?>"></i>
           </a>
         <?php endwhile; ?>
