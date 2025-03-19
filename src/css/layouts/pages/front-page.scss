@@ -99,11 +99,7 @@ section.homepage-section {
       object-fit: cover;
       border: 0.25rem solid $clr-base;
 
-      @media (max-width: $breakpoint-md) {
-        max-height: 30vh;
-      }
-
-      @media (max-width: $breakpoint-sm) {
+      @media (max-width: $breakpoint-lg) {
         display: none;
       }
     }
