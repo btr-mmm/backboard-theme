@@ -9,27 +9,44 @@
     <nav>
       <ul>
         <li>
-          <a href="<?php echo site_url('/training') ?>">
-            Training
-          </a>
-        </li>
-        <li>
-          <a href="<?php echo site_url('/college-consulting') ?>">
-            College Consulting
-          </a>
-        </li>
-        <li>
-          <a href="<?php echo site_url('/camps-and-clinics') ?>">
+          <a
+            href="<?php echo site_url('/camps-and-clinics') ?>">
             Camps & Clinics
           </a>
         </li>
         <li>
-          <a href="<?php echo site_url('/leagues') ?>">
+          <a
+            href="<?php echo site_url('/leagues') ?>">
             Leagues
           </a>
         </li>
         <li>
-          <a href="<?php echo site_url('/about') ?>">
+          <a
+            href="<?php echo site_url('/training') ?>">
+            Training
+          </a>
+        </li>
+
+        <?php if (get_field('consulting_enabled', 'option')): ?>
+          <li>
+            <a
+              href="<?php echo site_url('/consulting') ?>">
+              Consulting
+            </a>
+          </li>
+        <?php endif;
+
+        if (get_field('premier_enabled', 'option')): ?>
+          <li>
+            <a
+              href="<?php echo site_url('/premier-teams') ?>">
+              Premier Teams
+            </a>
+          </li>
+        <?php endif; ?>
+        <li>
+          <a
+            href="<?php echo site_url('/about') ?>">
             About Us
           </a>
         </li>
